@@ -202,7 +202,7 @@ bool AirspyHFSource::configure(int sampleRateIndex, uint8_t hfAttLevel,
     m_sampleRate = sampleRate;
   }
 
-  int low_if = airspyhf_is_low_if(m_dev);
+  int low_if = 0; //airspyhf_is_low_if(m_dev);
   if (low_if != 0) {
     m_low_if = true;
   } else {
@@ -228,7 +228,7 @@ bool AirspyHFSource::configure(int sampleRateIndex, uint8_t hfAttLevel,
 
   if (hfAttLevel > 0) {
 
-    rc = (airspyhf_error)airspyhf_set_hf_agc(m_dev, 0);
+    //rc = (airspyhf_error)airspyhf_set_hf_agc(m_dev, 0);
 
     if (rc != AIRSPYHF_SUCCESS) {
       std::ostringstream err_ostr;
@@ -237,7 +237,7 @@ bool AirspyHFSource::configure(int sampleRateIndex, uint8_t hfAttLevel,
       return false;
     }
 
-    rc = (airspyhf_error)airspyhf_set_hf_att(m_dev, hfAttLevel);
+    //rc = (airspyhf_error)airspyhf_set_hf_att(m_dev, hfAttLevel);
 
     if (rc != AIRSPYHF_SUCCESS) {
       std::ostringstream err_ostr;
@@ -249,7 +249,7 @@ bool AirspyHFSource::configure(int sampleRateIndex, uint8_t hfAttLevel,
 
   } else {
 
-    rc = (airspyhf_error)airspyhf_set_hf_agc(m_dev, 1);
+    //rc = (airspyhf_error)airspyhf_set_hf_agc(m_dev, 1);
 
     if (rc != AIRSPYHF_SUCCESS) {
       std::ostringstream err_ostr;
@@ -258,7 +258,7 @@ bool AirspyHFSource::configure(int sampleRateIndex, uint8_t hfAttLevel,
       return false;
     }
 
-    rc = (airspyhf_error)airspyhf_set_hf_att(m_dev, 0);
+  //  rc = (airspyhf_error)airspyhf_set_hf_att(m_dev, 0);
 
     if (rc != AIRSPYHF_SUCCESS) {
       std::ostringstream err_ostr;
